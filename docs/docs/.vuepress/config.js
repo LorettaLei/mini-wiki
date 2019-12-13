@@ -1,0 +1,1 @@
+module.exports = {"title":"mini-wiki","base":"/docs","themeConfig":{"nav":[{"text":"首页","link":"/html/7289170931"},{"text":"GitHub","link":"https://github.com/LorettaLei/mini-wiki"}],"sidebar":[{"title":"测试","children":[{"title":"测试-1","children":[{"title":"测试-1-1","children":[{"title":"说明文档","path":"/html/7289170931"}]}]}]}]}}

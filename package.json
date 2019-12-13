@@ -1,0 +1,37 @@
+{
+    "name": "album",
+    "version": "0.4.0",
+    "description": "",
+    "private": false,
+    "scripts": {
+        "start": "node ./server/bin/www",
+        "server": "supervisor ./server/bin/www",
+        "pm2start": "pm2 start ./server/bin/www",
+        "pm2stop": "pm2 stop ./server/bin/www"
+    },
+    "keywords": [
+        "vuepress",
+        "vuepress wiki",
+        "nodejs wiki",
+        "wiki"
+      ],
+    "author": "lorettaLei",
+    "homepage": "https://github.com/LorettaLei/lalawiki",
+    "bugs": {
+        "url": "https://github.com/LorettaLei/lalawiki"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "morgan": "^1.9.1"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cheerio": "^1.0.0-rc.3",
+        "debug": "^4.1.1",
+        "express": "^4.17.1",
+        "file-stream-rotator": "^0.4.1",
+        "log4js": "^4.5.1",
+        "mongoose": "^5.6.7",
+        "request": "^2.88.0"
+    }
+}
