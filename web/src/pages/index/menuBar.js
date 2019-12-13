@@ -19,14 +19,12 @@ class Editor extends Component {
     this.props.requestSidebar(this);
   }
   handleClick = e => {
-    console.log(e);
     this.setState({
       activeIndex: e.key
     });
     this.props.getMD(e.keyPath);
   };
   onOpenChange = e => {
-    console.log(e);
     this.setState({
       openKeys: e
     });

@@ -31,7 +31,6 @@ router.post('/create', function(req, res) {
             path = JSON.parse(data.parent);
             object = { title: data.title, path: `/html/${filename}` };
             json = setSideBar(obj, path, path.length - 1, object);
-            console.log(json)
         } else {
             sidebar.push({
                 title: data.title,
@@ -209,7 +208,6 @@ reBuildDocs = (url) => {
     });
 }
 setSideBar = (jsonArr, path, index, obj) => {
-    console.log(obj)
     if (!jsonArr.children) {
         return null;
     }

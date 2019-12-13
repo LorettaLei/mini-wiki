@@ -23,9 +23,9 @@
 /web/npm-debug.log*
 /web/yarn-debug.log*
 /web/yarn-error.log*
-/log
+/log/*
 /server/log/*
 /docs/node_modules
-/docs/docs/.vuepress/dist
-/docs/docs/.vuepress/docs
+/docs/docs/.vuepress/dist/*
+/docs/docs/.vuepress/docs/*
 .DS_Store

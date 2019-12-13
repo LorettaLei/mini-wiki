@@ -15,7 +15,6 @@ class Home extends React.Component {
     path: ""
   };
   getMD = path => {
-    console.log(this.props);
     action.getMD({ path: JSON.stringify(path) }).then(d => {
       if (d.status === 200) {
         this.setState({
