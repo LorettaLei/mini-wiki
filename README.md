@@ -34,3 +34,6 @@ yarn start
 cd docs
 yarn docs:dev
 ```
+## 效果阅览
+![](https://github.com/LorettaLei/mini-wiki/blob/master/web/src/asserts/images/management.png)
+![](https://github.com/LorettaLei/mini-wiki/blob/master/web/src/asserts/images/docs.png)
