@@ -116,7 +116,7 @@ class Layouts extends React.Component {
             }
             key={item.title}
           >
-            <div>
+            <div className={item.path?'file':''}>
               <span>{item.title}</span>
               {item.path ? (
                 <span className="right">

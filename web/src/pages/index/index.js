@@ -99,6 +99,7 @@ class Home extends React.Component {
             <div style={{ height: "calc(100% - 128px)" }}>
               <MdEditor
                 value={this.state.MOCK_DATA}
+                config={{ view: { html: true, md: false,menu:true,fullScreen:true } }}
                 onChange={this.handleEditorChange}
                 renderHTML={text => this.state.mdParser.render(text)}
               />

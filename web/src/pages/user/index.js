@@ -2,14 +2,18 @@ import React from "react";
 import { PageHeader, Button, Table, Modal, message, Popconfirm } from "antd";
 import "./style.styl";
 import UserForm from "./userForm";
+import ResetPwdForm from "./resetPwdForm";
 import action from "./action";
 import tool from "../../utils/tool";
+import md5 from "js-md5";
 
 class User extends React.Component {
   state = {
     dialogShow: false,
     tableData: [],
-    pager: {}
+    pager: {},
+    resetAccount: '',
+    resetFormShow: false
   };
   UNSAFE_componentWillMount() {
     this.getTableData(1);
@@ -60,6 +64,28 @@ class User extends React.Component {
       }
     });
   };
+  resetP = (account) => {
+    this.setState({
+      resetAccount: account,
+      resetFormShow: true
+    })
+  }
+  resetPwd = (pwd) => {
+    action.updateUser({
+      account: this.state.resetAccount,
+      passwd: md5(md5(pwd) + "snail").slice(0, 20),
+    }).then(d => {
+      if (d.status === 200) {
+        message.success('操作成功')
+        this.setState({
+          resetAccount: '',
+          resetFormShow: false
+        })
+      } else {
+        message.error(d.msg)
+      }
+    })
+  }
   render() {
     const { tableData } = this.state;
     const columns = [
@@ -81,10 +107,10 @@ class User extends React.Component {
         }
       },
       {
-        title: "创建时间",
+        title: "创建日期",
         dataIndex: "created",
         render: (text, row) => {
-          return <span>{tool.timestampToDateTime(row.created)}</span>;
+          return <span>{tool.timestampToDate(row.created)}</span>;
         }
       },
       {
@@ -103,12 +129,15 @@ class User extends React.Component {
         dataIndex: "id",
         render: (text, row) => {
           return (
+            <div>
+            <a className="a__table" onClick={()=>{this.resetP(row.account)}}>重置密码</a>
             <Popconfirm
               title={`是否永久 ${row.username} 的帐号?`}
               onConfirm={() => this.deleteUser(row._id)}
             >
-              <a>删除</a>
-            </Popconfirm>
+              <a className="danger">删除</a>
+              </Popconfirm>
+            </div>
           );
         }
       }
@@ -147,6 +176,16 @@ class User extends React.Component {
           footer={""}
         >
           <UserForm addUser={this.addUser} />
+        </Modal>
+        <Modal
+          title="重置密码"
+          visible={this.state.resetFormShow}
+          onCancel={() => {
+            this.setState({ resetFormShow: false });
+          }}
+          footer={""}
+        >
+          <ResetPwdForm submit={this.resetPwd} />
         </Modal>
       </div>
     );
