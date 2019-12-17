@@ -1,4 +1,4 @@
-## 通过管理后台生成vuepress wiki项目，非开发人员适用，轻量型企业版wiki文档管理系统
+## 通过管理后台生成vuepress wiki项目，非开发人员适用，轻量型个人wiki文档管理系统
 # 使用
 ### 数据库
 - mongoDB
